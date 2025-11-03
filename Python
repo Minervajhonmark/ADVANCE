@@ -1,0 +1,234 @@
+Linked list
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+ 
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+
+    def insert_after(self, prev_data, data):
+        current = self.head
+        while current and current.data != prev_data:
+            current = current.next
+        if not current:
+            print(f"Node with data {prev_data} not found!")
+            return
+        new_node = Node(data)
+        new_node.next = current.next
+        current.next = new_node
+
+ 
+    def delete_node(self, key):
+        current = self.head
+
+
+        if current and current.data == key:
+            self.head = current.next
+            current = None
+            return
+
+
+        prev = None
+        while current and current.data != key:
+            prev = current
+            current = current.next
+
+
+        if not current:
+            print(f"Node with data {key} not found!")
+            return
+
+
+        prev.next = current.next
+        current = None
+
+
+    def search(self, key):
+        current = self.head
+        while current:
+            if current.data == key:
+                return True
+            current = current.next
+        return False
+
+    def display(self):
+        current = self.head
+        if not current:
+            print("Linked List is empty.")
+            return
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+
+
+
+if _name_ == "_main_":
+    ll = LinkedList()
+
+
+    ll.insert_at_beginning(10)
+    ll.insert_at_beginning(5)
+    ll.insert_at_end(15)
+    ll.insert_after(10, 12)
+
+  
+    print("Linked List:")
+    ll.display()
+
+  
+    print("\nSearch 12:", ll.search(12))
+    print("Search 99:", ll.search(99))
+
+   
+    ll.delete_node(10)
+    print("\nAfter deleting 10:")
+    ll.display()
+
+TREE (NODES)
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+    # Display tree (inorder traversal)
+    def display(self):
+        if self.left:
+            self.left.display()
+        print(self.data, end=" ")
+        if self.right:
+            self.right.display()
+
+
+# Example
+if _name_ == "_main_":
+    # Create nodes
+    root = Node(10)
+    root.left = Node(5)
+    root.right = Node(15)
+    root.left.left = Node(3)
+    root.left.right = Node(7)
+    root.right.left = Node(12)
+    root.right.right = Node(18)
+
+    print("ORDER TRAVERSAL OF TREE:")
+    root.display()
+
+
+
+QUEUE
+
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    # Enqueue - insert element at end
+    def enqueue(self, data):
+        self.queue.append(data)
+        print(f"{data} added to queue")
+
+    # Dequeue - remove element from front
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue is empty! Cannot dequeue.")
+        else:
+            removed = self.queue.pop(0)
+            print(f"{removed} removed from queue")
+
+    # Peek - see the front element
+    def peek(self):
+        if self.is_empty():
+            print("Queue is empty!")
+        else:
+            print(f"Front element is: {self.queue[0]}")
+
+    # Check if queue is empty
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    # Display the queue
+    def display(self):
+        if self.is_empty():
+            print("Queue is empty!")
+        else:
+            print("Queue elements:", self.queue)
+
+if _name_ == "_main_":
+    q = Queue()
+    q.enqueue(10)
+    q.enqueue(20)
+    q.enqueue(30)
+    q.display()
+    q.peek()
+    q.dequeue()
+    q.display()
+
+
+
+STACK
+
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+  
+    def push(self, data):
+        self.stack.append(data)
+        print(f"{data} pushed to stack")
+
+  
+    def pop(self):
+        if self.is_empty():
+            print("Stack is empty! Cannot pop.")
+        else:
+            removed = self.stack.pop()
+            print(f"{removed} popped from stack")
+
+  
+    def peek(self):
+        if self.is_empty():
+            print("Stack is empty!")
+        else:
+            print(f"Top element is: {self.stack[-1]}")
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    # Display elements
+    def display(self):
+        if self.is_empty():
+            print("Stack is empty!")
+        else:
+            print("Stack elements :", list(reversed(self.stack)))
+
+if _name_ == "_main_":
+    s = Stack()
+    s.push(10)
+    s.push(20)
+    s.push(30)
+    s.display()
+    s.peek()
+    s.pop()
+    s.display()
+

@@ -14,7 +14,6 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
- 
     def insert_at_end(self, data):
         new_node = Node(data)
         if not self.head:
@@ -36,31 +35,25 @@ class LinkedList:
         new_node.next = current.next
         current.next = new_node
 
- 
     def delete_node(self, key):
         current = self.head
-
 
         if current and current.data == key:
             self.head = current.next
             current = None
             return
 
-
         prev = None
         while current and current.data != key:
             prev = current
             current = current.next
 
-
         if not current:
             print(f"Node with data {key} not found!")
             return
 
-
         prev.next = current.next
         current = None
-
 
     def search(self, key):
         current = self.head
@@ -80,26 +73,21 @@ class LinkedList:
             current = current.next
         print("None")
 
-
-
-if _name_ == "_main_":
+# Main execution block
+if __name__ == "__main__":
     ll = LinkedList()
-
 
     ll.insert_at_beginning(10)
     ll.insert_at_beginning(5)
     ll.insert_at_end(15)
     ll.insert_after(10, 12)
 
-  
     print("Linked List:")
     ll.display()
 
-  
     print("\nSearch 12:", ll.search(12))
     print("Search 99:", ll.search(99))
 
-   
     ll.delete_node(10)
     print("\nAfter deleting 10:")
     ll.display()

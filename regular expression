@@ -1,0 +1,10 @@
+import re
+
+pattern = r'[\w\.-]+@[\w\.-]+\.\w{2,}'
+
+while True:
+    email = input("Enter your email: ")
+    if re.fullmatch(pattern, email):
+        print("valid Email!")
+        break
+    print("Invalid Email. Try again.")

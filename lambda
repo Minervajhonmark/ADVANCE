@@ -1,0 +1,9 @@
+numbers = [int(input(f"Enter number {i+1}: ")) for i in range(int(input("How many numbers? ")))]
+
+doubled = list(map(lambda x: x*2, numbers))
+
+for o, d in zip(numbers, doubled):
+    print(f"{o} doubled is {d}")
+
+print("\nOriginal:", numbers)
+print("Doubled:", doubled)

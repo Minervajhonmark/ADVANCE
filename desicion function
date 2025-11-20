@@ -1,0 +1,23 @@
+age_input = input("Please enter your age: ")
+
+if age_input.isdigit():
+    age = int(age_input)
+    
+    if age < 0:
+        print("Age cannot be negative. Please enter a valid age.")
+    elif age < 13:
+        print("You are a child.")
+        print("Enjoy your childhood and have fun learning new things!")
+    elif age < 18:
+        print("You are a teenager.")
+        print("This is a great time to explore hobbies and build skills.")
+    elif age < 60:
+        print("You are an adult.")
+        print("Responsibility and independence come with this stage of life.")
+    else:
+        print("You are a senior.")
+        print("Wisdom and experience are your strengths at this stage.")
+else:
+    print("Invalid input. Please enter a valid number for your age.")
+
+print("Thank you for using the Age Checker Program!")

@@ -1,0 +1,14 @@
+fruits = ["apple","banana","mango","orange","grape"]
+fruits.append(input("Add a fruit: "))
+f = input("Remove a fruit: ")
+if f in fruits: fruits.remove(f)
+print("Fruits:", fruits)
+
+
+animals = ("dog","cat","elephant","tiger","parrot")
+print("\n2nd:", animals[1], "Last:", animals[-1])
+
+
+sports = {"soccer","tennis","basketball","cycling","swimming","running"}
+indoor = {"chess","reading","coding","painting","cycling","board games"}
+print("\nUnion:", sports|indoor, "\nDifference:", sports-indoor, "\nIntersection:", sports&indoor)

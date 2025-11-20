@@ -1,0 +1,32 @@
+import json
+
+students = {
+    1: {"name":"markii","age":19,"srCode":"24"},
+    2: {"name":"marky","age":20,"srCode":"24"},
+    3: {"name":"mark","age":21,"srCode":"24"},
+}
+
+while True:
+    print("1:Add 2:Display 3:Save 4:Exit")
+    choice = input("Choice: ")
+
+    if choice=="1":
+        sid = len(students)+1
+        students[sid] = {
+            "name": input("Name: "),
+            "age": int(input("Age: ")),
+            "srCode": input("SR Code: ")
+        }
+        print("Student added!\n")
+    elif choice=="2":
+        for id, s in students.items():
+            print(f"ID:{id} Name:{s['name']} Age:{s['age']} SR:{s['srCode']}")
+        print()
+    elif choice=="3":
+        with open("studentData.json","w") as f:
+            json.dump(students,f,indent=4)
+        print("Data saved!\n")
+    elif choice=="4":
+        break
+    else:
+        print("Invalid choice!\n")
